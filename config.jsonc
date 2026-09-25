@@ -4,7 +4,7 @@
   "height": 30,
   "spacing": 4,
 
-  "modules-left": ["custom/help", "custom/launcher", "hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["custom/help", "custom/launcher", "hyprland/workspaces", "custom/layout", "hyprland/window"],
   "modules-center": ["custom/clock"],
   "modules-right": ["cpu", "memory", "custom/gpu", "pulseaudio", "bluetooth", "custom/vpn", "network", "tray", "custom/power"],
 
@@ -25,6 +25,15 @@
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "persistent-workspaces": { "*": 5 }
+  },
+
+  "custom/layout": {
+    "exec": "~/.config/hypr/scripts/layout.sh status",
+    "return-type": "json",
+    "interval": 30,
+    "signal": 9,
+    "on-click": "~/.config/hypr/scripts/layout.sh next",
+    "on-click-right": "~/.config/hypr/scripts/layout.sh prev"
   },
 
   "hyprland/window": {

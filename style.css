@@ -32,6 +32,7 @@ window#waybar {
 
 #custom-help,
 #custom-launcher,
+#custom-layout,
 #window,
 #custom-clock,
 #cpu,
@@ -76,4 +77,8 @@ window#waybar {
 
 #custom-vpn.disconnected {
     color: #6c7086;
+}
+
+#custom-layout {
+    color: #89b4fa;
 }
