@@ -1,0 +1,77 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+
+  "modules-left": ["custom/help", "custom/launcher", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory", "pulseaudio", "network", "tray", "custom/power"],
+
+  "custom/help": {
+    "format": "\uf059",
+    "tooltip-format": "Show key bindings (Super + F1)",
+    "on-click": "pkill -x fuzzel || ~/.config/hypr/scripts/keybinds.py"
+  },
+
+  "custom/launcher": {
+    "format": "\uf17c",
+    "tooltip": false,
+    "on-click": "fuzzel"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "persistent-workspaces": { "*": 5 }
+  },
+
+  "hyprland/window": {
+    "max-length": 60,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "cpu": {
+    "format": "\uf2db {usage}%",
+    "interval": 5
+  },
+
+  "memory": {
+    "format": "\uf1c0 {percentage}%",
+    "interval": 5
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "\uf026 muted",
+    "format-icons": { "default": ["\uf026", "\uf027", "\uf028"] },
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": "\uf1eb {essid}",
+    "format-ethernet": "\uf0e8 {ipaddr}",
+    "format-disconnected": "⚠ offline",
+    "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "tray": {
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "\uf011",
+    "tooltip-format": "Left: lock  |  Right: power menu",
+    "on-click": "hyprlock",
+    "on-click-right": "~/.config/waybar/power-menu.sh"
+  }
+}
