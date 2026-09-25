@@ -6,7 +6,7 @@
 
   "modules-left": ["custom/help", "custom/launcher", "hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "pulseaudio", "network", "tray", "custom/power"],
+  "modules-right": ["cpu", "memory", "custom/gpu", "pulseaudio", "bluetooth", "network", "tray", "custom/power"],
 
   "custom/help": {
     "format": "\uf059",
@@ -38,13 +38,21 @@
   },
 
   "cpu": {
-    "format": "\uf2db {usage}%",
+    "format": "CPU {usage}%",
     "interval": 5
   },
 
   "memory": {
-    "format": "\uf1c0 {percentage}%",
+    "format": "MEM {used:0.1f}G",
+    "tooltip-format": "RAM {used:0.1f} / {total:0.1f} GiB ({percentage}%)\nSwap {swapUsed:0.1f} / {swapTotal:0.1f} GiB",
     "interval": 5
+  },
+
+  "custom/gpu": {
+    "exec": "~/.config/waybar/gpu.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "kitty -e nvtop"
   },
 
   "pulseaudio": {
@@ -54,6 +62,19 @@
     "on-click": "pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "scroll-step": 5
+  },
+
+  "bluetooth": {
+    "format": "\uf293",
+    "format-off": "\uf293 off",
+    "format-disabled": "",
+    "format-connected": "\uf293",
+    "format-connected-battery": "\uf293 {device_battery_percentage}%",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager",
+    "on-click-right": "bluetoothctl power $(bluetoothctl show | grep -q 'Powered: yes' && echo off || echo on)"
   },
 
   "network": {

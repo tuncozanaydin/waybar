@@ -36,7 +36,9 @@ window#waybar {
 #clock,
 #cpu,
 #memory,
+#custom-gpu,
 #pulseaudio,
+#bluetooth,
 #network,
 #tray,
 #custom-power {
@@ -58,6 +60,7 @@ window#waybar {
 }
 
 #pulseaudio.muted,
+#bluetooth.off,
 #network.disconnected {
     color: #f38ba8;
 }
