@@ -7,5 +7,5 @@ if [[ -z $q ]]; then
     exit 0
 fi
 IFS=', ' read -r util used total temp name <<<"$q"
-printf '{"text":"GPU %s%%","tooltip":"%s\\nVRAM %.1f / %.1f GiB\\nTemp %s°C","percentage":%s}\n' \
+printf '{"text":"GPU %3s%%","tooltip":"%s\\nVRAM %.1f / %.1f GiB\\nTemp %s°C","percentage":%s}\n' \
     "$util" "$name" "$(awk "BEGIN{print $used/1024}")" "$(awk "BEGIN{print $total/1024}")" "$temp" "$util"

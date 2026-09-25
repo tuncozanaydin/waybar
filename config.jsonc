@@ -38,12 +38,12 @@
   },
 
   "cpu": {
-    "format": "CPU {usage}%",
+    "format": "CPU {usage:>3}%",
     "interval": 5
   },
 
   "memory": {
-    "format": "MEM {used:0.1f}G",
+    "format": "MEM {used:>4.1f}G",
     "tooltip-format": "RAM {used:0.1f} / {total:0.1f} GiB ({percentage}%)\nSwap {swapUsed:0.1f} / {swapTotal:0.1f} GiB",
     "interval": 5
   },
@@ -56,8 +56,8 @@
   },
 
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "\uf026 muted",
+    "format": "{icon} {volume:>3}%",
+    "format-muted": "\uf026 mute",
     "format-icons": { "default": ["\uf026", "\uf027", "\uf028"] },
     "on-click": "pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -69,7 +69,7 @@
     "format-off": "\uf293 off",
     "format-disabled": "",
     "format-connected": "\uf293",
-    "format-connected-battery": "\uf293 {device_battery_percentage}%",
+    "format-connected-battery": "\uf293 {device_battery_percentage:>3}%",
     "tooltip-format-connected": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
