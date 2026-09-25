@@ -33,7 +33,7 @@ window#waybar {
 #custom-help,
 #custom-launcher,
 #window,
-#clock,
+#custom-clock,
 #cpu,
 #memory,
 #custom-gpu,
@@ -55,7 +55,7 @@ window#waybar {
     font-size: 15px;
 }
 
-#clock {
+#custom-clock {
     font-weight: bold;
 }
 
