@@ -39,6 +39,7 @@ window#waybar {
 #custom-gpu,
 #pulseaudio,
 #bluetooth,
+#custom-vpn,
 #network,
 #tray,
 #custom-power {
@@ -67,4 +68,12 @@ window#waybar {
 
 #custom-power {
     color: #f38ba8;
+}
+
+#custom-vpn.connected {
+    color: #a6e3a1;
+}
+
+#custom-vpn.disconnected {
+    color: #6c7086;
 }

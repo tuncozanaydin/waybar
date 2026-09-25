@@ -6,7 +6,7 @@
 
   "modules-left": ["custom/help", "custom/launcher", "hyprland/workspaces", "hyprland/window"],
   "modules-center": ["custom/clock"],
-  "modules-right": ["cpu", "memory", "custom/gpu", "pulseaudio", "bluetooth", "network", "tray", "custom/power"],
+  "modules-right": ["cpu", "memory", "custom/gpu", "pulseaudio", "bluetooth", "custom/vpn", "network", "tray", "custom/power"],
 
   "custom/help": {
     "format": "\uf059",
@@ -76,6 +76,14 @@
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
     "on-click": "blueman-manager",
     "on-click-right": "bluetoothctl power $(bluetoothctl show | grep -q 'Powered: yes' && echo off || echo on)"
+  },
+
+  "custom/vpn": {
+    "exec": "~/.config/waybar/vpn.sh",
+    "return-type": "json",
+    "interval": 10,
+    "signal": 8,
+    "on-click": "~/.local/bin/vpn toggle"
   },
 
   "network": {
