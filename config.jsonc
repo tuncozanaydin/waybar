@@ -28,12 +28,11 @@
   },
 
   "custom/layout": {
-    "exec": "~/.config/hypr/scripts/layout.sh status",
+    "exec": "~/.config/hypr/scripts/layout-watch.py",
     "return-type": "json",
-    "interval": 30,
-    "signal": 9,
-    "on-click": "~/.config/hypr/scripts/layout.sh next",
-    "on-click-right": "~/.config/hypr/scripts/layout.sh prev"
+    "restart-interval": 5,
+    "on-click": "~/.config/hypr/scripts/layout.sh toggle",
+    "on-click-right": "~/.config/hypr/scripts/layout.sh dwindle"
   },
 
   "hyprland/window": {
@@ -42,7 +41,7 @@
   },
 
   "custom/clock": {
-    "exec": "~/.config/waybar/clock.sh",
+    "exec": "~/.config/waybar/clock.py",
     "return-type": "json",
     "interval": 5
   },
